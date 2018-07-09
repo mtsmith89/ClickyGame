@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import AmiiboCard from "./components/AmiiboCard";
 import Nav from "./components/Nav";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import Container from "./Container";
 import Row from "./Row";
 import Column from "./Column";
-import friends from "./friends.json";
+import amiibos from "./amiibos.json";
 import "./App.css";
 
-function shuffleFriends(array) {
+function shuffleAmiibos(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -18,9 +18,8 @@ function shuffleFriends(array) {
 };
 
 class App extends Component {
-  // Set this.state
   state = {
-    friends,
+    amiibos,
     currentScore: 0,
     topScore: 0,
     rightWrong: "",
@@ -62,8 +61,8 @@ class App extends Component {
   };
 
   handleShuffle = () => {
-    let shuffledFriends = shuffleFriends(friends);
-    this.setState({ friends: shuffledFriends });
+    let shuffledAmiibos = shuffleAmiibos(amiibos);
+    this.setState({ amiibos: shuffledAmiibos });
   };
 
   render() {
@@ -82,16 +81,16 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.friends.map(friend => (
+            {this.state.amiibos.map(Amiibo => (
               <Column size="md-3 sm-6">
-                <FriendCard
-                  key={friend.id}
+                <AmiiboCard
+                  key={Amiibo.id}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
                   handleReset={this.handleReset}
                   handleShuffle={this.handleShuffle}
-                  id={friend.id}
-                  image={friend.image}
+                  id={Amiibo.id}
+                  image={Amiibo.image}
                 />
               </Column>
             ))}
