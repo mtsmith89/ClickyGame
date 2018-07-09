@@ -1,0 +1,12 @@
+.wrapper {
+    background: rgb(175, 175, 175);
+    background-image: url('http://freshwallpapers.net/download/7478/3840x2400/download/3d-polygons-dark-pattern.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
